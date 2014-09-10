@@ -1,0 +1,12 @@
+.game {
+  width: 300px;
+  height: 30px;
+  border: thin black solid;
+}
+
+.display{
+  margin-left: 50%;
+  display: block;
+  width: 100px;
+  height: 100px;
+}

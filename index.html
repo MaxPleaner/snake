@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Snake</title>
+    <link rel="stylesheet" type="text/css" href="./snake.css">
+  </head>
+  <body>
+    <script src="./jquery-2.1.1.js"></script>
+    <!-- Whackjobs at GithubPages don't understand symlinks... -->
+    <script src="./snake.js"></script>
+    <script src="./snake-ui.js"></script>
+    <h1>Snake</h1>
+    <hr>
+    
+    <input class="game" value="you can only move if your mouse focus is on this input">
+    </input>
+
+    <pre class="display">
+        
+    </pre>
+
+
+    <script>
+    $(function () {
+      var $el = $('.game');
+      var view = new SnakeGame.View($el);
+      view.start();
+    });
+    </script>
+  </body>
+</html>
