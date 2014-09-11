@@ -8,13 +8,25 @@
   };
   
   View.prototype.bindEvents = function () {
-    this.$el.on("keydown", handleKeyEvent.bind(this));
+    $(document).on("keydown", handleKeyEvent.bind(this));
   };
   
   View.prototype.render = function () {
-    // var $holder = $('<pre></pre>');
-    // $holder.append(this.board.render());
-    $('.display').text(this.board.render());
+    var $display = $('.display');
+    $display.html('');
+    for (var i = 0; i < this.board.spaces.length; i++) {
+      var $row = $('<div class="row"></div>');
+      for (var j = 0; j < this.board.spaces[i].length; j++) {
+        var class2 = "empty"
+        if (this.board.spaces[i][j] === '*') {
+          class2 = "snake";
+        } else if (this.board.spaces[i][j] === "$") {
+          class2 = "apple";
+        }
+        $row.append($('<div class="cell ' + class2 + '"></div>'));
+      }
+      $display.append($row);
+    }
   };
   
   View.prototype.start = function () {

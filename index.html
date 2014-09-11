@@ -13,8 +13,8 @@
     <h1>Snake</h1>
     <hr>
     
-    <input class="game" value="you can only move if your mouse focus is on this input">
-    </input>
+    <!-- <input class="game" value="you can only move if your mouse focus is on this input">
+    </input> -->
 
     <pre class="display">
         
@@ -24,6 +24,7 @@
     <script>
     $(function () {
       var $el = $('.game');
+      $('input').focus();
       var view = new SnakeGame.View($el);
       view.start();
     });

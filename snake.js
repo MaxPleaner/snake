@@ -19,8 +19,13 @@
   
   Snake.prototype.move = function () {
     var snakeHead = this.segments[this.segments.length - 1];
-    this.segments.push(snakeHead.plus(this.dir));
-    this.segments.splice(0, 1);
+    var nextSpot = snakeHead.plus(this.dir);
+    if (this.board.spaces[nextSpot.position[0]][nextSpot.position[1]] !== "$") {
+      this.segments.splice(0, 1);
+    } else {
+      this.board.setApple();
+    }
+    this.segments.push(nextSpot);
   };
   
   Snake.prototype.turn = function(dir) {
@@ -47,12 +52,15 @@
     for (var i = 0; i < 10; i++) {
       this.spaces.push(new Array(10));
     };
+    this.setApple();
   };
   
   Board.prototype.storeState = function () {
     this.spaces.forEach(function(row){
       for (var i = 0; i < row.length; i++) {
-        row[i] = undefined;
+        if (row[i] !== "$") {
+          row[i] = undefined;
+        }
       };
     })
     for (var i = 0; i < this.snake.segments.length; i++) {
@@ -77,4 +85,16 @@
     })
     return output;
   };
+  
+  Board.prototype.setApple = function () {
+    while (true) {
+      var i = Math.floor(Math.random() * 10);
+      var j = Math.floor(Math.random() * 10);
+      if (this.spaces[i][j] === undefined) {
+        this.spaces[i][j] = "$";
+        return false;
+      }
+    };
+  };
+  
 })();

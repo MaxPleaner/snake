@@ -10,3 +10,31 @@
   width: 100px;
   height: 100px;
 }
+
+.row {
+  box-sizing: border-box;
+  height: 20px;
+  width: 200px;
+}
+
+.cell {
+  box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  float: left;
+}
+input{
+/*  visibility: hidden;*/
+}
+
+.empty {
+  background: #CCCCCC;
+}
+
+.snake {
+  background: #00FF00;
+}
+
+.apple {
+  background: #FF0000;
+}
