@@ -32,7 +32,7 @@
   View.prototype.start = function () {
     this.board = new SnakeGame.Board();
     this.bindEvents();
-    setInterval(this.step.bind(this), 500);
+    setInterval(this.step.bind(this), 200);
   };
   
   View.prototype.step = function () {
