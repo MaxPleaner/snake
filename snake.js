@@ -17,19 +17,47 @@
     "W": [0, -1]
   };
   
+  function inBounds (coords) {
+    if (((coords[0] > 9) || (coords[0] < 0)) || 
+     ((coords[1] > 9) || (coords[1] < 0))) {
+       return false;
+     }
+     return true;
+  };
+  
+  Snake.prototype.avoidSelf = function (coords) {
+    if (this.board.spaces[coords[0]][coords[1]] === "*") {
+      return false;
+    }
+    return true;
+  }
+  
   Snake.prototype.move = function () {
     var snakeHead = this.segments[this.segments.length - 1];
     var nextSpot = snakeHead.plus(this.dir);
-    if (this.board.spaces[nextSpot.position[0]][nextSpot.position[1]] !== "$") {
-      this.segments.splice(0, 1);
-    } else {
-      this.board.setApple();
+    if (inBounds(nextSpot.position) && this.avoidSelf(nextSpot.position)) {
+      if (this.board.spaces[nextSpot.position[0]][nextSpot.position[1]] !== "$") {
+        this.segments.splice(0, 1);
+      } else {
+        this.board.setApple();
+      }
+      this.segments.push(nextSpot);
+    } else { 
+      alert("Game over. Refresh page to restart");
     }
-    this.segments.push(nextSpot);
   };
   
+  var OPPOSITES = {
+    "N": "S",
+    "S": "N",
+    "E": "W",
+    "W": "E"
+  }
+  
   Snake.prototype.turn = function(dir) {
-    this.dir = dir;
+    if (dir !== OPPOSITES[this.dir]) {
+      this.dir = dir;
+    }
   };
   
   var Coord = SnakeGame.Coord = function (position) {
