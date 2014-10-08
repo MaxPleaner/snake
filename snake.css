@@ -7,12 +7,35 @@ html, body {
   height: 100%;
 }
 
+.commentary {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: rgba(10,50,80, .3);
+  display: inline-block;
+  text-align: left;
+}
+
 body {
+  text-align: center;
+  background: #f0f9ff; /* Old browsers */
+  background: -moz-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f9ff), color-stop(47%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
   background-attachment: fixed;
+  padding-left: 30px;
+  font-family: "Courier New", Courier, monospace;  
   /*background-image: url('snake-bg.jpg');*/
   background-height: 100%;
   background-size: auto 100%;
   background-repeat: no-repeat;
+  width: 1270px;
+  height: 632px;
 }
 
 .game {
@@ -21,8 +44,12 @@ body {
   border: thin black solid;
 }
 
+
+
 .display{
-  margin-left: 50%;
+  padding: 40px 0;
+  margin: 0 auto;
+  /*margin-left: 50%;*/
   display: block;
   width: 100px;
   height: 100px;

@@ -1,8 +1,7 @@
 (function () {
   if (typeof SnakeGame === "undefined") {
     window.SnakeGame = {};
-  }
-  
+  }  
   var Snake = SnakeGame.Snake = function (board) {
     this.dirOptions = ["N", "E", "S", "W"];
     this.dir = "N";
@@ -43,7 +42,7 @@
       }
       this.segments.push(nextSpot);
     } else { 
-      alert("Game over. Refresh page to restart");
+      // alert("Game over. Refresh page to restart");
     }
   };
   
