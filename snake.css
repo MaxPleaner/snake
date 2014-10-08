@@ -9,7 +9,7 @@ html, body {
 
 body {
   background-attachment: fixed;
-  background-image: url('snake-bg.jpg');
+  /*background-image: url('snake-bg.jpg');*/
   background-height: 100%;
   background-size: auto 100%;
   background-repeat: no-repeat;
